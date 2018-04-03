@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html class="">
+<body>
+<style>
+	.full-sketch-container {
+		margin: 25px auto;
+	}
+
+	.full-sketch-container svg{
+		position: absolute;
+		margin: auto;
+		right: 0;
+		left: 0;
+	}
+	  
+	ul.lettermenu {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color: #555555;
+	}
+
+	li.lettermenu {
+		float: left;
+	}
+
+	li.lettermenu a {
+		display: block;
+		color: white;
+		text-align: center;
+		padding-left: 8px;
+		padding-right: 8px;
+		font-family: Times New Roman;
+		font-size: xx-large;
+		text-decoration: none;
+	}
+
+	li.lettermenu a:hover {
+		background-color: #111111;
+	}
+</style>
+
+<script type="text/javascript">// <![CDATA[
+function showResults(lettername) {
+
+    document.querySelectorAll('li').forEach(function(path, i){
+		if(path.id == lettername) path.style.backgroundColor='#111111';
+		else path.style.backgroundColor='#555555';
+	});
+	/*document.querySelectorAll('li').forEach(function(el){el.style.background-color='#555555'};);*/
+	document.querySelector("#explanation").style.display='none';
+    document.querySelectorAll('svg').forEach(function(path, i){path.style.visibility='hidden'});
+	var svg = document.querySelector('#' + lettername + ' svg');
+    svg.style.visibility = '';
+    var paths = svg.querySelectorAll('path');
+    var begin = 0;
+	
+	var durations = [0, 0];
+
+	paths.forEach(function(path, i) {
+		var length = path.getTotalLength();
+		durations[i] = Math.pow(length, 0.5) * 0.1;
+		path.style.transition = path.style.WebkitTransition = 'none';
+		path.style.strokeDasharray = length + ' ' + length;
+		path.style.strokeDashoffset = length;
+		path.getBoundingClientRect();
+		path.style.transition = path.style.WebkitTransition = 'stroke-dashoffset ' + durations[i] + 's ' + begin + 's ease-in-out';
+		path.style.strokeDashoffset = '0';
+		begin += durations[i] + 0.1;
+	});	
+	
+  }
+
+
+// ]]></script>
+<ul class="lettermenu">
+  <li id="aleph" class="lettermenu"><a class="lettermenu" href="javascript:void(0);" onclick="showResults('aleph');">א</a></li>
+  <li id="beth" class="lettermenu"><a class="lettermenu" href="javascript:void(0);" onclick="showResults('beth');">ב</a></li>
+  <li id="gimel" class="lettermenu"><a class="lettermenu" href="javascript:void(0);" onclick="showResults('gimel');">ג</a></li>
+  <li id="daleth" class="lettermenu"><a class="lettermenu" href="javascript:void(0);" onclick="showResults('daleth');">ד</a></li>
+  <li id="he" class="lettermenu"><a class="lettermenu" href="javascript:void(0);" onclick="showResults('he');">ה</a></li>
+  <li id="waw" class="lettermenu"><a class="lettermenu" href="javascript:void(0);" onclick="showResults('waw');">ו</a></li>
+  <li id="zajin" class="lettermenu"><a class="lettermenu" href="javascript:void(0);" onclick="showResults('zajin');">ז</a></li>
+  <li id="chet" class="lettermenu"><a class="lettermenu" href="javascript:void(0);" onclick="showResults('chet');">ח</a></li>
+  <li id="teth" class="lettermenu"><a class="lettermenu" href="javascript:void(0);" onclick="showResults('teth');">ט</a></li>
+  <li id="jod" class="lettermenu"><a class="lettermenu" href="javascript:void(0);" onclick="showResults('jod');">י</a></li>
+  <li id="kaph" class="lettermenu"><a class="lettermenu" href="javascript:void(0);" onclick="showResults('kaph');">כ</a></li>
+  <li id="lamed" class="lettermenu"><a class="lettermenu" href="javascript:void(0);" onclick="showResults('lamed');">ל</a></li>
+  <li id="mem" class="lettermenu"><a class="lettermenu" href="javascript:void(0);" onclick="showResults('mem');">מ</a></li>
+  <li id="nun" class="lettermenu"><a class="lettermenu" href="javascript:void(0);" onclick="showResults('nun');">נ</a></li>
+  <li id="samech" class="lettermenu"><a class="lettermenu" href="javascript:void(0);" onclick="showResults('samech');">ס</a></li>
+  <li id="ajin" class="lettermenu"><a class="lettermenu" href="javascript:void(0);" onclick="showResults('ajin');">ע</a></li>
+  <li id="pe" class="lettermenu"><a class="lettermenu" href="javascript:void(0);" onclick="showResults('pe');">פ</a></li>
+  <li id="sade" class="lettermenu"><a class="lettermenu" href="javascript:void(0);" onclick="showResults('sade');">צ</a></li>
+  <li id="qoph" class="lettermenu"><a class="lettermenu" href="javascript:void(0);" onclick="showResults('qoph');">ק</a></li>
+  <li id="resch" class="lettermenu"><a class="lettermenu" href="javascript:void(0);" onclick="showResults('resch');">ר</a></li>
+  <li id="sin" class="lettermenu"><a class="lettermenu" href="javascript:void(0);" onclick="showResults('sin');">שׂ</a></li>
+  <li id="schin" class="lettermenu"><a class="lettermenu" href="javascript:void(0);" onclick="showResults('schin');">שׁ</a></li>
+  <li id="taw" class="lettermenu"><a class="lettermenu" href="javascript:void(0);" onclick="showResults('taw');">ת</a></li>
+</ul>
+<span style="display:block; width:150px; border-style:solid; border-width:2px; padding:5px;" id="explanation">Klicke auf einen der hebräischen Buchstaben, um dir die korrekte Schreibweise anzusehen.</span>
+<div class="full-sketch-container" id="aleph" >
+<svg xmlns="http://www.w3.org/2000/svg" style="visibility:hidden" width="80.926117mm" height="88.178391mm" viewBox="0 0 80.926117 88.178391">
+  <g transform="translate(-38.40205,-47.351087)">
+	<path class="letter" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 43.451895,55.100469 114.27832,127.79778"
+       id="path4506"
+       inkscape:connector-curvature="0" />
+    <path class="letter"	style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 111.08794,52.419002 v 0 c 0,0 4.83182,15.263663 0.99307,21.679258 -8.52886,14.254002 -51.487403,18.297177 -64.12759,30.60601 -8.272716,8.05587 -0.421051,25.76007 -0.421051,25.76007"
+       id="path4508"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccssc" />
+  </g>
+</svg>
+</div>
+<div class="full-sketch-container" id="beth" >
+<svg xmlns="http://www.w3.org/2000/svg" style="visibility:hidden" width="87.917862mm" height="87.40255mm" viewBox="0 0 87.917862 87.40255">
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-34.906176,-47.747849)">
+    <g
+       id="g5067"
+       transform="translate(-2.5e-6,3.236947)">
+	<path
+         sodipodi:nodetypes="csc"
+         inkscape:connector-curvature="0"
+         id="path5061"
+         d="m 41.263123,56.086529 c 0,0 55.466101,-17.012809 64.679227,3.741773 8.70798,19.616657 0,66.550108 0,66.550108"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path5063"
+         d="M 39.977391,126.91295 H 117.75283"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+
+  </g>
+  </g>
+</svg>
+</div>
+<div class="full-sketch-container" id="gimel" >
+<svg xmlns="http://www.w3.org/2000/svg" style="visibility:hidden" width="87.917862mm" height="87.40255mm" viewBox="0 0 87.917862 87.40255">
+<g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-34.906176,-47.747849)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 78.203838,53.323303 c 0,0 15.501633,1.2044 15.501633,11.350455 0,26.515578 0,33.341427 0,50.336802 0,7.15386 -15.768901,14.55819 -15.768901,14.55819"
+       id="path5069"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cssc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 94.153133,114.39988 14.899407,14.89941"
+       id="path5071"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>
+</div>
+<div class="full-sketch-container" id="daleth" >
+<svg xmlns="http://www.w3.org/2000/svg" style="visibility:hidden" width="87.917862mm" height="87.40255mm" viewBox="0 0 87.917862 87.40255">
+<g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-34.906176,-47.747849)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 43.852798,56.573154 H 113.87742"
+       id="path5075"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 105.46533,57.909501 V 126.86504"
+       id="path5077"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>
+</div>
+<div class="full-sketch-container" id="he" >
+<svg xmlns="http://www.w3.org/2000/svg" style="visibility:hidden" width="87.917862mm" height="87.40255mm" viewBox="0 0 87.917862 87.40255">
+<g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-34.906176,-47.747849)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 43.620884,57.604174 H 114.18004 V 125.22336"
+       id="path5079"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 46.196007,84.136332 V 125.22336"
+       id="path5081"
+       inkscape:connector-curvature="0" />
+  </g>
+  </svg>
+  </div>
+<div class="full-sketch-container" id="waw" >
+<svg xmlns="http://www.w3.org/2000/svg" style="visibility:hidden" width="87.917862mm" height="87.40255mm" viewBox="0 0 87.917862 87.40255">
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-34.906176,-47.747849)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 71.590424,53.744659 c 0,0 14.612528,7.355767 14.612528,12.980132 0,20.930805 0,62.389879 0,62.389879"
+       id="path5083"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csc" />
+  </g>
+  </svg>
+  </div>
+  <div class="full-sketch-container" id="zajin" >
+<svg xmlns="http://www.w3.org/2000/svg" style="visibility:hidden" width="87.917862mm" height="87.40255mm" viewBox="0 0 87.917862 87.40255">
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-34.906176,-47.747849)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 65.68689,53.633189 c 0,0 4.380612,8.510085 13.918146,8.035645 8.565395,-0.426082 12.438568,7.181411 12.438568,7.181411"
+       id="path5085"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 76.826698,68.592175 c 0,0 -3.424344,15.978856 0,31.905605 3.075308,14.30337 0,28.51385 0,28.51385"
+       id="path5085-4"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csc" />
+  </g>
+  </svg>
+  </div>
+  <div class="full-sketch-container" id="chet" >
+<svg xmlns="http://www.w3.org/2000/svg" style="visibility:hidden" width="87.917862mm" height="87.40255mm" viewBox="0 0 87.917862 87.40255">
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-34.906176,-47.747849)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 43.620884,57.604174 H 114.18004 V 125.22336"
+       id="path5079"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 50.140539,62.415025 V 125.22336"
+       id="path5652"
+       inkscape:connector-curvature="0" />
+  </g>
+  </svg>
+  </div>
+   
+   <div class="full-sketch-container" id="teth" >
+<svg xmlns="http://www.w3.org/2000/svg" style="visibility:hidden" width="87.917862mm" height="87.40255mm" viewBox="0 0 87.917862 87.40255">
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-34.906176,-47.747849)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 42.806719,57.008845 c 8.126287,-0.05799 10.717341,1.782485 12.886336,9.699958 4.969202,17.226025 -15.007063,26.868116 -7.966099,43.110927 5.441495,12.55299 21.904524,17.65573 33.973068,15.62772 11.936192,-2.00577 24.164956,-12.85568 28.349926,-25.866563 5.63489,-17.518612 7.956,-36.900375 -1.27388,-41.542091 C 99.181529,53.21369 88.494638,68.325463 88.494638,68.325463"
+       id="path5654"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccssssc" />
+  </g>
+  </svg>
+  </div>
+  
+   <div class="full-sketch-container" id="jod" >
+<svg xmlns="http://www.w3.org/2000/svg" style="visibility:hidden" width="87.917862mm" height="87.40255mm" viewBox="0 0 87.917862 87.40255">
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-34.906176,-47.747849)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 65.997191,60.949683 c 0,0 17.929665,-5.510379 23.786987,4.603575 4.886986,8.438456 -1.155084,26.218464 -1.155084,26.218464"
+       id="path5656"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csc" />
+  </g>
+  </svg>
+  </div>
+  
+  <div class="full-sketch-container" id="kaph" >
+<svg xmlns="http://www.w3.org/2000/svg" style="visibility:hidden" width="179.30359mm" height="115.53126mm" viewBox="0 0 179.30359 115.53126">
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-39.744393,-50.116713)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 45.336954,59.726478 c 0,0 2.573415,0.959476 5.345391,1.336347 12.195838,1.658118 35.577084,-12.125321 49.979405,-2.405425 11.37423,7.676283 12.09495,18.717784 12.29439,29.399647 0.23517,12.595123 -0.79939,33.431023 -12.56167,37.952273 -15.80374,6.07473 -34.121177,-5.30441 -48.643048,-8.01808 -2.545676,-0.47571 -6.949007,2.67269 -6.949007,2.67269"
+       id="path5658"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csssssc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 143.95215,56.671434 h 70.02462"
+       id="path5075"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 213.97677,56.671434 V 160.57676"
+       id="path5077"
+       inkscape:connector-curvature="0" />
+  </g>
+  </svg>
+  </div>
+   <div class="full-sketch-container" id="lamed" >
+<svg xmlns="http://www.w3.org/2000/svg" style="visibility:hidden" width="72.121727mm" height="105.27585mm" viewBox="0 0 72.121727 105.27585">
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-155.52067,-29.065812)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 166.67005,34.122518 c 0,0 2.09929,2.749858 2.40543,6.147199 0.63079,7.000143 -13.71025,17.10525 -6.68174,17.10525 h 53.18664 c 9.53262,0 6.90574,20.585077 6.1472,31.270535 -2.40091,13.251318 -12.06569,11.594178 -31.13062,19.478358 -7.546,3.1206 -7.08893,21.14661 -7.08893,21.14661"
+       id="path6228"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cssscsc" />
+  </g>
+  </svg>
+  </div>
+  
+   <div class="full-sketch-container" id="mem" >
+<svg xmlns="http://www.w3.org/2000/svg" style="visibility:hidden" width="180.02142mm" height="81.780838mm" viewBox="0 0 180.02142 81.780838">
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-36.431319,-50.558708)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 41.501087,61.923913 c 0,0 11.145638,2.287948 11.145638,6.863843 0,28.154842 -9.491752,57.400644 -9.491752,57.400644 0,0 10.632133,-42.850557 10.632133,-64.768522 0,-5.535392 28.066762,-7.01449 39.457024,0 16.99858,10.468274 32.31181,64.784992 16.27436,64.784992 -10.310617,0 -45.808061,0 -45.808061,0"
+       id="path6230"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cscsssc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 144.58532,57.814816 h 60.11451 c 6.33565,0 10.31199,66.429314 2.17807,68.400514 -6.83059,1.65534 -39.62902,0.99741 -51.62008,0.98419 -18.65872,-0.0206 -10.6725,-46.942886 -10.6725,-66.924254 0,-3.134024 -7.20792,-4.701036 -7.20792,-4.701036"
+       id="path6232"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cssssc" />
+  </g>
+  </svg>
+  </div>
+  
+   <div class="full-sketch-container" id="nun" >
+<svg xmlns="http://www.w3.org/2000/svg" style="visibility:hidden" width="81.028786mm" height="108.42677mm" viewBox="0 0 81.028784 108.42677">
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-43.576888,-52.170486)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 48.6481,57.170986 c 0,0 6.796821,0 18.105817,0 5.016733,0 4.968488,69.087174 0,69.087174 -10.953382,0 -17.263686,0 -17.263686,0"
+       id="path6234"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cssc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 97.368772,57.170986 h 20.045218 c 4.93069,18.40158 0,98.355184 0,98.355184"
+       id="path6236"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc" />
+  </g>
+  </svg>
+  </div>
+  
+   <div class="full-sketch-container" id="samech" >
+<svg xmlns="http://www.w3.org/2000/svg" style="visibility:hidden" width="78.241425mm" height="82.664825mm" viewBox="0 0 78.241425 82.664827">
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-39.744393,-50.116713)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 44.802415,56.251974 c 0,0 6.047919,0.959476 8.819895,1.336347 12.195838,1.658118 36.579601,-5.568806 50.51394,4.810852 10.30516,7.676283 9.80718,46.529747 3.74177,55.324787 -8.317456,12.06059 -27.793613,11.24766 -41.42678,9.35444 C 49.681117,124.74955 45.120754,102.59956 49.880535,81.909854 52.503284,70.509351 62.976743,59.459208 62.976743,59.459208"
+       id="path5658"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csssssc" />
+  </g>
+  </svg>
+  </div>
+  
+   <div class="full-sketch-container" id="ajin" >
+<svg xmlns="http://www.w3.org/2000/svg" style="visibility:hidden" width="78.241425mm" height="82.664825mm" viewBox="0 0 78.241425 82.664827">
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-39.744393,-50.116713)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10.66327763;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 98.897724,56.034968 c 0,0 5.846146,23.810036 0.50585,34.405941 C 95.70992,97.769632 88.81438,103.75738 79.056443,108.7359 67.437265,114.66403 61.969815,126.8677 61.969815,126.8677"
+       id="path6240"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cssc"
+       inkscape:label="path6238" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10.66327763;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 56.775212,56.254039 c 0,0 -2.132747,14.771502 0.569994,19.362603 4.833836,8.211154 27.361443,9.919049 31.911319,14.993272 4.420231,4.929637 4.283289,6.951493 4.283289,6.951493"
+       id="path6238"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cssc"
+       inkscape:label="path6240" />
+  </g>
+  </svg>
+  </div>
+  
+   <div class="full-sketch-container" id="pe" >
+<svg xmlns="http://www.w3.org/2000/svg" style="visibility:hidden" width="179.30359mm" height="115.53126mm" viewBox="0 0 179.30359 115.53126">
+   <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-39.744393,-50.116713)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 45.336954,59.726478 c 0,0 2.573415,0.959476 5.345391,1.336347 12.195838,1.658118 35.577084,-12.125321 49.979405,-2.405425 11.37423,7.676283 12.09495,18.717784 12.29439,29.399647 0.23517,12.595123 -0.79939,33.431023 -12.56167,37.952273 -15.80374,6.07473 -34.121177,-5.30441 -48.643048,-8.01808 -2.545676,-0.47571 -6.949007,2.67269 -6.949007,2.67269"
+       id="path5658"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csssssc"
+       inkscape:label="path1" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 77.696667,58.20562 c 0,0 4.01542,26.480959 -3.207234,31.805074 -5.977965,4.406603 -13.63552,0.699102 -15.768903,-6.414469 -1.665264,-5.55267 3.314513,-10.961773 9.087163,-11.49259 9.547131,-0.877894 16.837982,22.183373 16.837982,22.183373"
+       id="path6805"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csssc"
+       inkscape:label="path2" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 143.95215,56.671434 h 70.02462"
+       id="path5075"
+       inkscape:connector-curvature="0"
+       inkscape:label="path3" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 213.97677,56.671434 V 160.57676"
+       id="path5077"
+       inkscape:connector-curvature="0"
+       inkscape:label="path4" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 170.18195,61.280463 c 0,0 4.01542,26.480957 -3.20724,31.805077 -5.97796,4.4066 -13.63552,0.6991 -15.7689,-6.41447 -1.66526,-5.55267 3.31451,-10.961774 9.08716,-11.492592 9.54713,-0.877893 16.83798,22.183372 16.83798,22.183372"
+       id="path6805-0"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csssc"
+       inkscape:label="path5" />
+  </g>
+  </svg>
+  </div>
+  
+   <div class="full-sketch-container" id="sade" >
+<svg xmlns="http://www.w3.org/2000/svg" style="visibility:hidden" width="160.37738mm" height="113.65858mm" viewBox="0 0 160.37738 113.65858">
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-40.265743,-50.64588)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 46.406032,56.24123 c 0,0 14.333275,-1.980489 18.441598,2.672694 15.827528,21.367262 27.92626,34.795187 47.3067,69.757356 -33.863255,0.34579 -44.869501,-0.11834 -66.817376,0"
+       id="path5658"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc"
+       inkscape:label="path6822" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 96.940076,56.529897 c 0,0 18.486224,-3.856256 14.967094,4.543582 0,0 -7.84874,7.063182 -16.20577,13.858572 -6.84427,5.565316 -8.11576,12.86838 -8.11576,12.86838"
+       id="path6823"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cssc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 142.64316,56.869272 c 0,0 13.42462,-0.974454 18.4416,1.336348 15.39962,7.093015 15.12857,48.08957 15.12857,48.08957 l -4.54358,52.93831"
+       id="path6825"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cscc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 183.26813,57.136542 c 0,0 8.08398,-0.674473 10.69078,3.474504 8.20009,13.051264 -16.05655,38.185621 -16.05655,38.185621"
+       id="path6827"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csc" />
+  </g>
+  </svg>
+  </div>
+  
+   <div class="full-sketch-container" id="qoph" >
+<svg xmlns="http://www.w3.org/2000/svg" style="visibility:hidden" width="75.38665mm" height="114.17398mm" viewBox="0 0 75.386651 114.17398">
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-39.998568,-51.099744)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 49.894715,69.071987 c 0,0 -6.284706,27.095374 0,45.565713 4.97767,14.62904 0,45.56571 0,45.56571"
+       id="path5077"
+       inkscape:connector-curvature="0"
+       inkscape:label="path1"
+       sodipodi:nodetypes="csc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 45.069685,56.251974 c 24.793975,1.290173 55.940245,-2.931884 59.601105,3.741774 5.4943,5.805396 7.40237,21.674562 4.00903,31.805072 -4.30841,12.86239 -14.741637,16.29925 -29.132371,16.57071 -10.548232,0.19899 -12.768093,0.93149 -19.510671,14.16529"
+       id="path5658"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccssc"
+       inkscape:label="path2" />
+  </g>
+  </svg>
+  </div>
+  
+   <div class="full-sketch-container" id="resch" >
+<svg xmlns="http://www.w3.org/2000/svg" style="visibility:hidden" width="78.18309mm" height="78.182068mm" viewBox="0 0 78.183091 78.182069">
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-39.859193,-53.657974)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 44.930324,58.661858 21.549512,1.032388 c 13.545014,0.648912 36.848874,-3.9921 42.630514,3.097166 7.41968,9.097811 1.82941,31.49116 2.40162,42.828828 l 1.06739,21.14868"
+       id="path6829"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csssc" />
+  </g>
+  </svg>
+  </div>
+  
+   <div class="full-sketch-container" id="sin" >
+<svg xmlns="http://www.w3.org/2000/svg" style="visibility:hidden" width="77.855255mm" height="89.698311mm" viewBox="0 0 77.855256 89.698312">
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-39.844464,-41.502944)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 112.69464,59.632234 c 0,0 -1.88786,29.076883 -4.18593,45.911956 -2.29806,16.83505 -9.819964,20.62947 -29.701885,20.65682 -21.731645,0.0299 -29.9164,-3.43168 -32.668244,-20.2145 -2.751843,-16.782795 -0.07078,-46.886826 -0.07078,-46.886826"
+       id="path6831"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csssc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 80.521604,59.533544 76.214677,125.03722"
+       id="path6833"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 47.561511,46.503444 v 0"
+       id="path6837"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+  </g>
+  </svg>
+  </div>
+  
+   <div class="full-sketch-container" id="schin" >
+<svg xmlns="http://www.w3.org/2000/svg" style="visibility:hidden" width="77.855255mm" height="89.698311mm" viewBox="0 0 77.855256 89.698312">
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-39.844464,-41.502944)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 112.69464,59.632234 c 0,0 -1.88786,29.076883 -4.18593,45.911956 -2.29806,16.83505 -9.819964,20.62947 -29.701885,20.65682 -21.731645,0.0299 -29.9164,-3.43168 -32.668244,-20.2145 -2.751843,-16.782795 -0.07078,-46.886826 -0.07078,-46.886826"
+       id="path6831"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csssc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 80.521604,59.533544 76.214677,125.03722"
+       id="path6833"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 112.62851,46.503444 v 0"
+       id="path6837"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+  </g>
+  </svg>
+  </div>
+  
+   <div class="full-sketch-container" id="taw" >
+<svg xmlns="http://www.w3.org/2000/svg" style="visibility:hidden" width="69.985916mm" height="77.963913mm" viewBox="0 0 69.985917 77.963914">
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-43.778079,-53.634039)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 48.848598,61.457878 c 0,0 54.526812,-7.690788 58.847482,2.33316 3.37598,7.832266 -2.33316,62.736082 -2.33316,62.736082"
+       id="path7405"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 65.769607,60.904002 c 0,0 -9.989966,7.846902 -11.759859,13.898015 -4.834776,16.529689 10.223893,26.304743 9.354435,47.841243 -0.186772,4.62633 -12.02713,3.74177 -12.02713,3.74177"
+       id="path7407"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cssc" />
+  </g>
+  </svg>
+  </div>
+  
+</body>
+
+</html>
